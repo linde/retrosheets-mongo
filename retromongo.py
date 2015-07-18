@@ -30,7 +30,9 @@ import logging
 import csv
 
 from optparse import OptionParser
-from pymongo import Connection
+#from pymongo import Connection
+from pymongo import MongoClient
+
 
 # from pudb import set_trace; set_trace()    
 
@@ -384,7 +386,9 @@ def main():
         parser.print_help()
         quit(-1)
 
-    connection = Connection(options.host, options.port)
+    #connection = Connection(options.host, options.port)
+    connection = MongoClient()
+ 
     db = connection[options.db]
     
     if not db:
